@@ -112,7 +112,7 @@ export default function Home() {
             >
               I turn complex ideas into seamless, high-impact web experiences -
               building modern, scalable, and lightining-fast applications that
-              make a difference. building modern
+              make a difference.
             </motion.p>
 
             <motion.div
