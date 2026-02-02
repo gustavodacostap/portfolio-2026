@@ -79,7 +79,7 @@ export default function Navbar() {
             onClick={() => {
               setMenuOpen(true);
             }}
-            className="text-white text-3xl focus:outline-none"
+            className="text-white text-3xl focus:outline-none cursor-pointer"
             aria-label="open Menu"
           >
             <FiMenu />
