@@ -49,7 +49,8 @@ export default function Skills() {
     },
   ];
 
-  const repeated = [...skills, ...skills];
+  const COPIES = 3;
+  const repeated = Array.from({ length: COPIES }, () => skills).flat();
 
   const [dir, setDir] = useState(-1);
   const [active, setActive] = useState(false);
@@ -96,20 +97,25 @@ export default function Skills() {
   }, [active]);
 
   useEffect(() => {
-    let id;
+    let id: number;
     let last = performance.now();
     const SPEED = 90;
 
-    const tick = (now) => {
+    const tick = (now: number) => {
       const dt = (now - last) / 1000;
       last = now;
-      let next = x.get() + SPEED * dir * dt;
-      const loop = trackRef.current?.scrollWidth / 2 || 0;
 
-      if (loop) {
-        if (next <= -loop) next += loop;
-        if (next >= 0) next -= loop;
+      let next = x.get() + SPEED * dir * dt;
+
+      const track = trackRef.current;
+      if (track) {
+        const totalWidth = track.scrollWidth;
+        const singleLoop = totalWidth / COPIES;
+
+        if (next <= -singleLoop) next += singleLoop;
+        if (next >= 0) next -= singleLoop;
       }
+
       x.set(next);
       id = requestAnimationFrame(tick);
     };
@@ -151,7 +157,7 @@ export default function Skills() {
         <motion.div
           ref={trackRef}
           className="flex gap-10 text-6xl text-[#1cd8d2]"
-          style={{ x, whiteSpace: "rowrap", willChange: "transform" }}
+          style={{ x, whiteSpace: "nowrap", willChange: "transform" }}
         >
           {repeated.map((s, i) => (
             <div
@@ -160,7 +166,7 @@ export default function Skills() {
               aria-label={s.name}
               title={s.name}
             >
-              <span className="hover:scale-125 transition-transform duration-300">
+              <span>
                 <s.icon />
               </span>
               <p className="text-sm">{s.name}</p>
