@@ -52,11 +52,11 @@ export default function Skills() {
   const COPIES = 3;
   const repeated = Array.from({ length: COPIES }, () => skills).flat();
 
-  const [dir, setDir] = useState(-1);
+  const [dir, setDir] = useState<1 | -1>(-1);
   const [active, setActive] = useState(false);
-  const sectionRef = useRef(null);
-  const trackRef = useRef(null);
-  const touchY = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const touchY = useRef<number | null>(null);
   const x = useMotionValue(0);
 
   useEffect(() => {
@@ -76,9 +76,10 @@ export default function Skills() {
   useEffect(() => {
     if (!active) return;
 
-    const onWheel = (e) => setDir(e.deltaY > 0 ? -1 : 1);
-    const onTouchStart = (e) => (touchY.current = e.touches[0].clientY);
-    const onTouchMove = (e) => {
+    const onWheel = (e: WheelEvent) => setDir(e.deltaY > 0 ? -1 : 1);
+    const onTouchStart = (e: TouchEvent) =>
+      (touchY.current = e.touches[0].clientY);
+    const onTouchMove = (e: TouchEvent) => {
       if (touchY.current === null) return;
       const delta = e.touches[0].clientY - touchY.current;
       setDir(delta > 0 ? 1 : -1);
