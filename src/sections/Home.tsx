@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="w-full h-screen relative bg-black overflow-hidden"
+      className="w-full h-screen relative bg-[#020617] text-[#f8fafc] overflow-hidden"
     >
       <ParticlesBackground></ParticlesBackground>
       <div className="absolute inset-0">
@@ -79,7 +79,7 @@ export default function Home() {
         <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
           <div className="w-full lg:pr-24 mx-auto max-w-[48rem]">
             <motion.div
-              className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]"
+              className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide min-h-[1.6em]"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -99,13 +99,13 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               Hello I'm <br />
-              <span className="text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
+              <span className="text-[#f8fafc] font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
                 Gustavo da Costa
               </span>
             </motion.h1>
 
             <motion.p
-              className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0"
+              className="mt-6 text-base sm:text-lg md:text-xl text-[#94a3b8] max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -123,7 +123,7 @@ export default function Home() {
             >
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full font-medium text-lg text-white bg-[#1cd8d2] shadow-lg hover:scale-105 transition-all"
+                className="px-6 py-3 rounded-full font-medium text-lg text-[#f8fafc] bg-[#1cd8d2] shadow-lg hover:scale-105 transition-all"
               >
                 View My Work
               </a>
@@ -147,7 +147,7 @@ export default function Home() {
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className="text-gray-300"
+                  className="text-[#94a3b8]"
                 >
                   <Icon />
                 </motion.a>

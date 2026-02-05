@@ -3,7 +3,7 @@ import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 // import ParticlesBackground from "./components/ParticlesBackground";
 import About from "./sections/About";
-import Contact from "./sections/Contact";
+// import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Footer from "./sections/Footer";
 import Home from "./sections/Home";
@@ -28,7 +28,7 @@ export default function App() {
           <Skills />
           <Projects />
           <Experience />
-          <Contact />
+          {/* <Contact /> */}
           <Footer />
         </div>
       )}
