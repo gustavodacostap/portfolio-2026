@@ -23,7 +23,7 @@ const glowVariants = {
     scale: 1.2,
     y: -3,
     filter:
-      "drop-shadow(0 0 12px rgba(56, 189, 248, 0.6)) drop-shadow(0 0 20px rgba(249, 115, 22, 0.4))",
+      "drop-shadow(0 0 12px rgba(56, 189, 248, 0.8)) drop-shadow(0 0 20px rgba(249, 115, 22, 0.8))",
     transition: { type: "spring", stiffness: 300, damping: 15 },
   },
   tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } },
@@ -64,22 +64,20 @@ export default function Home() {
       <div className="absolute inset-0">
         <div
           className="absolute -top-32 -left-32 w-[70vw] sm:w-[500vw] md:w-[40vw] 
-        h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
-via-[#0ea5e9] 
-to-[#f97316] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse"
+            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
+          via-[#0ea5e9] to-[#f97316] opacity-10 blur-[150px] animate-pulse"
         ></div>
 
         <div
           className="absolute bottom-0 right-0 w-[70vw] sm:w-[500vw] md:w-[40vw] 
-        h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
-via-[#0ea5e9] 
-to-[#f97316] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse"
+            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
+          via-[#0ea5e9] to-[#f97316] opacity-10 blur-[150px] animate-pulse"
         ></div>
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full pl-6 lg:pr-24 mx-auto max-w-[48rem]">
+          <div className="w-full lg:pl-6 lg:pr-24 mx-auto max-w-[48rem]">
             <motion.div
               className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide min-h-[1.6em]"
               initial={{ opacity: 0, y: 12 }}
@@ -94,13 +92,15 @@ to-[#f97316] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px]
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text
-            bg-linear-to-r from-[#f97316] to-[#94a3b8] drop-shadow-lg"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  drop-shadow-lg"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Hello I'm <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#f97316] to-[#e9bc40]">
+                Hello I'm
+              </span>
+              <br />
               <span className="text-[#f8fafc] font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
                 Gustavo
                 <br /> da Costa
@@ -126,7 +126,8 @@ to-[#f97316] opacity-30 sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px]
             >
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full font-medium text-lg text-[#f8fafc] bg-[#0ea5e9] shadow-lg hover:scale-105 transition-all"
+                className="px-6 py-3 rounded-full font-medium text-lg text-[#f8fafc] bg-linear-to-r from-[#f97316] 
+                via-[#fb923c] to-[#e9bc40] shadow-lg hover:scale-105 transition-all"
               >
                 View My Work
               </a>

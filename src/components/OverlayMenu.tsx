@@ -42,29 +42,24 @@ export default function OverlayMenu({ isOpen, onClose }: OverlayMenuProps) {
           </button>
 
           <ul className="space-y-6 text-center">
-            {[
-              "Home",
-              "About",
-              "Skills",
-              "Projects",
-              "Experience",
-              "Contact",
-            ].map((item, index) => (
-              <motion.li
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-              >
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={onClose}
-                  className="text-4xl text-white font-semibold hover:text-pink-400 transition-colors duration-300"
+            {["Home", "About", "Skills", "Projects", "Experience"].map(
+              (item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
                 >
-                  {item}
-                </a>
-              </motion.li>
-            ))}
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    onClick={onClose}
+                    className="text-4xl text-white font-semibold hover:text-[#f97316] transition-colors duration-300"
+                  >
+                    {item}
+                  </a>
+                </motion.li>
+              ),
+            )}
           </ul>
         </motion.div>
       )}

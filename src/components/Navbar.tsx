@@ -32,6 +32,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (menuOpen) {
+        setVisible(true);
+        return;
+      }
+
       if (forceVisible) {
         setVisible(true);
         return;
@@ -60,7 +65,17 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       if (timerId.current) clearTimeout(timerId.current);
     };
-  }, [forceVisible]);
+  }, [forceVisible, menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      if (timerId.current) clearTimeout(timerId.current);
+
+      timerId.current = window.setTimeout(() => {
+        setVisible(false);
+      }, 3000);
+    }
+  }, [menuOpen]);
 
   return (
     <>

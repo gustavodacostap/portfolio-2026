@@ -42,25 +42,44 @@ export default function Projects() {
   const projects: Project[] = useMemo(
     () => [
       {
-        title: "nk studio",
+        title: "Vidaplus",
         link: "https",
         bgColor: "#0d4d3d",
-        // image: isMobile ? photo1 : img1,
-        image: "",
+        image: isMobile
+          ? "/vidaplus-preview-mobile.png"
+          : "/vidaplus-preview.png",
       },
       {
-        title: "Gamily",
+        title: "Anuidades - CREA-SP",
         link: "https",
         bgColor: "#3884d3",
-        // image: isMobile ? photo2 : img2,
-        image: "",
+        image: isMobile
+          ? "/anuidade-preview-mobile.png"
+          : "/anuidade-preview.png",
       },
       {
-        title: "Find Out",
+        title: "Agendamento - CREA-SP",
         link: "https",
         bgColor: "#Dd9D55",
-        // image: isMobile ? photo3 : img3,
-        image: "",
+        image: isMobile
+          ? "/agendamento-preview-mobile.png"
+          : "/agendamento-preview.png",
+      },
+      {
+        title: "Task Manager Web",
+        link: "https",
+        bgColor: "#Dd9D55",
+        image: isMobile
+          ? "/task-manager-preview-mobile.png"
+          : "/task-manager-preview.png",
+      },
+      {
+        title: "Conversor de Moedas",
+        link: "https",
+        bgColor: "#Dd9D55",
+        image: isMobile
+          ? "/conversor-moedas-preview-mobile.png"
+          : "/conversor-moedas-preview.png",
       },
     ],
     [isMobile],
@@ -93,7 +112,7 @@ export default function Projects() {
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
         <h2
-          className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4" : "mt-8"}`}
+          className={`text-4xl sm:text-5xl font-semibold z-10 text-center ${isMobile ? "mt-4" : "mt-8"}`}
         >
           My Work
         </h2>
@@ -136,7 +155,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+                  className="w-full h-full object-cover object-top drop-shadow-xl md:drop-shadow-2xl"
                   style={{
                     position: "relative",
                     zIndex: 10,

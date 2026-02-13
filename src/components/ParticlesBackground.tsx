@@ -62,7 +62,7 @@ export default function ParticlesBackground() {
 
     const particles: Particle[] = [];
     const particleCount = 50;
-    const colors: string[] = ["rgba(255, 255, 255, 0.7)"];
+    const colors: string[] = ["rgba(	125, 216, 255, 1)"];
 
     function createParticles() {
       particles.length = 0;
