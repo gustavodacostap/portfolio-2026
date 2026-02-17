@@ -39,7 +39,7 @@ export default function IntroAnimation({ onFinish }: IntroAnimationProps) {
     <AnimatePresence onExitComplete={onFinish}>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-9999 flex items-center justify-center bg-black text-white overflow-hidden"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-[#020617] text-white overflow-hidden"
           initial={{ y: 0 }}
           exit={{
             y: "-100%",

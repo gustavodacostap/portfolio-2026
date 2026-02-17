@@ -62,12 +62,11 @@ export default function About() {
               Gustavo da Costa
             </h2>
             <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
-              Full Stack Developer
+              Full-Stack Developer
             </p>
             <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
-              I turn complex ideas into seamless, high-impact web experiences -
-              building modern, scalable, and lightining-fast applications that
-              make a difference.
+              Building modern, scalable applications with Angular, React and
+              .NET. Focused on performance, usability and real-world impact.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl sm:max-md:max-w-full">
               {stats.map((item, i) => (
@@ -107,13 +106,15 @@ export default function About() {
           </h3>
 
           <p className="text-[#94a3b8] leading-relaxed text-base sm:text-lg">
-            I'm a software developer bla bla bla Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Rerum iste maiores similique sed
-            dolores. Delectus neque deleniti est officia quos.
-          </p>
-
-          <p className="mt-4 text-[#94a3b8] text-base sm:text-lg">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.{" "}
+            I’m a full-stack developer currently working at CREA-SP,
+            contributing to the modernization of internal systems using Angular,
+            TypeScript and REST APIs. My experience includes migrating front-end
+            architectures, implementing state management with NgRx, improving
+            usability of systems and developing backend automations with C# and
+            .NET integrated with databases. I focus on writing clean, scalable
+            and maintainable code while delivering efficient solutions that
+            improve productivity and user experience. Always learning, always
+            building.
           </p>
         </motion.div>
       </div>

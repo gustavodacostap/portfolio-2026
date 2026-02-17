@@ -15,23 +15,16 @@ export default function App() {
   const [introDone, setIntroDone] = React.useState(false);
 
   return (
-    <>
-      {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}
+    <div className="relative gradient text-white">
+      <CustomCursor />
+      <Navbar />
+      <Home />
+      <About />
+      <Skills />
+      <Projects />
+      <Footer />
 
-      {introDone && (
-        <div className="relative gradient text-white">
-          <CustomCursor />
-          {/* <ParticlesBackground /> */}
-          <Navbar />
-          <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          {/* <Contact /> */}
-          <Footer />
-        </div>
-      )}
-    </>
+      {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}
+    </div>
   );
 }

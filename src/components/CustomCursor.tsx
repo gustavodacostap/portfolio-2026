@@ -8,7 +8,14 @@ type Position = {
 export default function CustomCursor() {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 
+  const [isDesktop] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  });
+
   useEffect(() => {
+    if (!isDesktop) return;
+
     const moveHandler = (e: MouseEvent) => {
       setPosition({
         x: e.clientX,
@@ -21,7 +28,9 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", moveHandler);
     };
-  }, []);
+  }, [isDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <div
@@ -30,7 +39,7 @@ export default function CustomCursor() {
         transform: `translate(${position.x - 40}px, ${position.y - 40}px)`,
       }}
     >
-      <div className="w-20 h-20 rounded-full bg-linear-to-r from-[#38bdf8] to-[#f97316] blur-3xl"></div>
+      <div className="w-20 h-20 rounded-full bg-linear-to-r from-[#38bdf8] to-[#f97316] blur-3xl opacity-70"></div>
     </div>
   );
 }

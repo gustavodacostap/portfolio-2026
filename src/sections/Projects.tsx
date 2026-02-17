@@ -44,23 +44,23 @@ export default function Projects() {
       {
         title: "Vidaplus",
         link: "https",
-        bgColor: "#0d4d3d",
+        bgColor: "#0f3d2e",
         image: isMobile
           ? "/vidaplus-preview-mobile.png"
           : "/vidaplus-preview.png",
       },
       {
-        title: "Anuidades - CREA-SP",
+        title: "Anuidades",
         link: "https",
-        bgColor: "#3884d3",
+        bgColor: "#1e3a8a",
         image: isMobile
           ? "/anuidade-preview-mobile.png"
           : "/anuidade-preview.png",
       },
       {
-        title: "Agendamento - CREA-SP",
+        title: "Agendamento",
         link: "https",
-        bgColor: "#Dd9D55",
+        bgColor: "#0c4a6e",
         image: isMobile
           ? "/agendamento-preview-mobile.png"
           : "/agendamento-preview.png",
@@ -68,7 +68,7 @@ export default function Projects() {
       {
         title: "Task Manager Web",
         link: "https",
-        bgColor: "#Dd9D55",
+        bgColor: "#312e81",
         image: isMobile
           ? "/task-manager-preview-mobile.png"
           : "/task-manager-preview.png",
@@ -76,7 +76,7 @@ export default function Projects() {
       {
         title: "Conversor de Moedas",
         link: "https",
-        bgColor: "#Dd9D55",
+        bgColor: "#134e4a",
         image: isMobile
           ? "/conversor-moedas-preview-mobile.png"
           : "/conversor-moedas-preview.png",
@@ -123,7 +123,7 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <div
               key={project.title}
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 
+              className={`whitespace-nowrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 
                 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"}`}
               style={{ width: "85%", maxWidth: "1200px" }}
             >
@@ -135,7 +135,7 @@ export default function Projects() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[35%] lg:left-[-5%] sm:mb-0
+                    className={`block text-center text-4xl lg:text-5xl xl:text-6xl text-white/95 sm:absolute sm:-top-11 lg:-top-14 lg:left-[-5%] sm:mb-0
                       italic font-semibold ${isMobile ? "-mt-24" : ""}`}
                     style={{
                       zIndex: 5,
@@ -177,7 +177,9 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className={`absolute ${isMobile ? "bottom-20" : "bottom-10"}`}>
+        <div
+          className={`absolute z-100 ${isMobile ? "bottom-20" : "bottom-10"}`}
+        >
           <a
             href={activeProject.link}
             target="_blank"

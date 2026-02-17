@@ -30,7 +30,7 @@ const glowVariants = {
 };
 
 export default function Home() {
-  const roles = useMemo(() => ["Web Developer", "Software Developer"], []);
+  const roles = useMemo(() => ["Web Developer", "Full-Stack Developer"], []);
 
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
@@ -98,7 +98,7 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#f97316] to-[#e9bc40]">
-                Hello I'm
+                Hello, I'm
               </span>
               <br />
               <span className="text-[#f8fafc] font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
@@ -113,9 +113,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              I turn complex ideas into seamless, high-impact web experiences -
-              building modern, scalable, and lightining-fast applications that
-              make a difference.
+              A full-stack web developer turning ideas into solutions with code,
+              passion, and purpose.
             </motion.p>
 
             <motion.div
@@ -132,7 +131,7 @@ export default function Home() {
                 View My Work
               </a>
               <a
-                href="/resume.pdf"
+                href="/curriculo-gustavo-da-costa.pdf"
                 download
                 className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
               >
@@ -168,13 +167,13 @@ export default function Home() {
               height: "min(55vw, 900px)",
               borderRadius: "50%",
               background: `
-  radial-gradient(
-    circle,
-    rgba(56, 189, 248, 0.4),
-    rgba(14, 165, 233, 0.25) 30%,
-    rgba(2, 6, 23, 0) 75%
-  )
-`,
+                radial-gradient(
+                  circle,
+                  rgba(56, 189, 248, 0.4),
+                  rgba(14, 165, 233, 0.25) 30%,
+                  rgba(2, 6, 23, 0) 75%
+                )
+              `,
               filter: "blur(60px)",
               opacity: 0.6,
             }}
