@@ -1,63 +1,62 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useMemo } from "react";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 
 type IntroAnimationProps = {
   onFinish: () => void;
 };
 
 export default function IntroAnimation({ onFinish }: IntroAnimationProps) {
-  const greetings = useMemo(
-    () => [
-      "Olá",
-      "Hello",
-      "Hola",
-      "Bonjour",
-      "Ciao",
-      "Hallo",
-      "Privet",
-      "Salam",
-      "Nǐ hǎo",
-      "Annyeong",
-      "Konnichiwa",
-    ],
-    [],
-  );
-  const [index, setIndex] = React.useState(0);
-  const [visible, setVisible] = React.useState(true);
+  const controls = useAnimation();
+  const [startExit, setStartExit] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (index < greetings.length - 1) {
-      const id = setInterval(() => setIndex((i) => i + 1), 180);
-      return () => clearInterval(id);
-    } else {
-      const t = setTimeout(() => setVisible(false), 300);
-      return () => clearTimeout(t);
-    }
-  }, [index, greetings.length]);
+    const sequence = async () => {
+      // ENTRADA (sobe + fade in)
+      await controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.3, ease: "easeOut" },
+      });
+
+      // PAUSA
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      // SAÍDA (desce + fade out)
+      await controls.start({
+        opacity: 0,
+        y: 20,
+        transition: { duration: 0.3, ease: "easeIn" },
+      });
+
+      // Inicia slide da tela
+      setStartExit(true);
+    };
+
+    sequence();
+  }, [controls]);
 
   return (
     <AnimatePresence onExitComplete={onFinish}>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-9999 flex items-center justify-center bg-[#020617] text-white overflow-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020617] overflow-hidden"
           initial={{ y: 0 }}
-          exit={{
-            y: "-100%",
-            transition: {
-              duration: 1.05,
-              ease: [0.22, 1, 0.36, 1],
-            },
+          animate={startExit ? { y: "-100%" } : { y: 0 }}
+          transition={{
+            duration: 1.05,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          onAnimationComplete={() => {
+            if (startExit) setVisible(false);
           }}
         >
           <motion.h1
-            key={index}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-linear-to-r from-[#f97316] to-[#e9bc40]"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.12 }}
+            animate={controls}
           >
-            {greetings[index]}
+            Welcome!
           </motion.h1>
         </motion.div>
       )}
