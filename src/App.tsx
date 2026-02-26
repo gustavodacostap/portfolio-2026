@@ -1,15 +1,13 @@
 import React from "react";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
-// import ParticlesBackground from "./components/ParticlesBackground";
 import About from "./sections/About";
-// import Contact from "./sections/Contact";
-import Experience from "./sections/Experience";
 import Footer from "./sections/Footer";
 import Home from "./sections/Home";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import IntroAnimation from "./components/IntroAnimation";
+import Experience from "./sections/Experience";
 
 export default function App() {
   const [introDone, setIntroDone] = React.useState(false);
@@ -22,6 +20,7 @@ export default function App() {
       <About />
       <Skills />
       <Projects />
+      <Experience />
       <Footer />
 
       {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}

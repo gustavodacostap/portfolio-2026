@@ -10,6 +10,14 @@ type OverlayMenuProps = {
 export default function OverlayMenu({ isOpen, onClose }: OverlayMenuProps) {
   const [isMobile, setIsMobile] = useState(false);
 
+  const menuItems = [
+    { label: "Início", id: "home" },
+    { label: "Sobre", id: "about" },
+    { label: "Habilidades", id: "skills" },
+    { label: "Projetos", id: "projects" },
+    { label: "Experiência", id: "experience" },
+  ];
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -42,19 +50,19 @@ export default function OverlayMenu({ isOpen, onClose }: OverlayMenuProps) {
           </button>
 
           <ul className="space-y-6 text-center">
-            {["Home", "About", "Skills", "Projects"].map((item, index) => (
+            {menuItems.map((item, index) => (
               <motion.li
-                key={item}
+                key={item.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.id}`}
                   onClick={onClose}
                   className="text-4xl text-white font-semibold hover:text-[#f97316] transition-colors duration-300"
                 >
-                  {item}
+                  {item.label}
                 </a>
               </motion.li>
             ))}

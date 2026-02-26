@@ -40,7 +40,7 @@ export default function IntroAnimation({ onFinish }: IntroAnimationProps) {
     <AnimatePresence onExitComplete={onFinish}>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#020617] overflow-hidden"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-[#020617] overflow-hidden"
           initial={{ y: 0 }}
           animate={startExit ? { y: "-100%" } : { y: 0 }}
           transition={{
@@ -56,7 +56,7 @@ export default function IntroAnimation({ onFinish }: IntroAnimationProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={controls}
           >
-            Welcome!
+            Bem-vindo!
           </motion.h1>
         </motion.div>
       )}

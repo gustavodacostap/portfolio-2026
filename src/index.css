@@ -14,3 +14,26 @@ h2 {
     background: linear-gradient(-45deg, #302b63, #00bf8f, #1cd8d2);
   }
 }
+
+/* largura da scrollbar */
+.dialog-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* trilho da barra */
+.dialog-content::-webkit-scrollbar-track {
+  background: #1f2937; /* cor de fundo */
+  border-radius: 8px;
+}
+
+/* a parte que você arrasta */
+.dialog-content::-webkit-scrollbar-thumb {
+  background-color: #6e7886;
+  border-radius: 8px;
+  border: 2px solid #1f2937;
+}
+
+/* hover para thumb */
+.dialog-content::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}

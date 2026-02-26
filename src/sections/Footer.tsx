@@ -24,7 +24,7 @@ const glowVariants = {
     transition: { type: "spring", stiffness: 300, damping: 15 },
   },
   tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } },
-};
+} as const;
 
 export default function Footer() {
   return (
@@ -39,7 +39,7 @@ export default function Footer() {
         transition={{ duration: 0.8 }}
       >
         <h1
-          className="font-semibold leading-none text-center select-none"
+          className="font-semibold text-center bg-clip-text text-transparent bg-linear-to-r from-[#f97316] to-[#e9bc40]"
           style={{
             fontSize: "clamp(3rem,5vw,14rem)",
             letterSpacing: "0.02em",
@@ -70,12 +70,12 @@ export default function Footer() {
         </div>
 
         <p className="text-gray-300 italic max-w-xl">
-          "Success is when preparation meets oportunity"
+          "O êxito é a soma de pequenos esforços repetidos dia após dia"
         </p>
 
         <p className="text-xs text-gray-400">
-          &copy; {new Date().getFullYear()} Gustavo da Costa. All rights
-          reserved
+          &copy; {new Date().getFullYear()} Gustavo da Costa. Todos os direitos
+          reservados.
         </p>
       </motion.div>
     </footer>

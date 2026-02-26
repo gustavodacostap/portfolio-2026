@@ -18,7 +18,11 @@ const socials = [
 ];
 
 const glowVariants = {
-  initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgba(0, 0, 0, 0))" },
+  initial: {
+    scale: 1,
+    filter: "drop-shadow(0 0 0 rgba(0, 0, 0, 0))",
+    opacity: 0,
+  },
   hover: {
     scale: 1.2,
     y: -3,
@@ -26,11 +30,22 @@ const glowVariants = {
       "drop-shadow(0 0 12px rgba(56, 189, 248, 0.8)) drop-shadow(0 0 20px rgba(249, 115, 22, 0.8))",
     transition: { type: "spring", stiffness: 300, damping: 15 },
   },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 3,
+      duration: 0.5,
+    },
+  },
+  transition: { delay: 2, duration: 0.5 },
   tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } },
-};
+} as const;
 
 export default function Home() {
-  const roles = useMemo(() => ["Web Developer", "Full-Stack Developer"], []);
+  const roles = useMemo(
+    () => ["Desenvolvedor Web", "Desenvolvedor Full-Stack"],
+    [],
+  );
 
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
@@ -64,29 +79,29 @@ export default function Home() {
       <div className="absolute inset-0">
         <div
           className="absolute -top-32 -left-32 w-[70vw] sm:w-[500vw] md:w-[40vw] 
-            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
+            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-125 max-h-125 rounded-full bg-linear-to-r from-[#0ea5e9] 
           via-[#0ea5e9] to-[#f97316] opacity-10 blur-[150px] animate-pulse"
         ></div>
 
         <div
           className="absolute bottom-0 right-0 w-[70vw] sm:w-[500vw] md:w-[40vw] 
-            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-linear-to-r from-[#0ea5e9] 
+            h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-125 max-h-125 rounded-full bg-linear-to-r from-[#0ea5e9] 
           via-[#0ea5e9] to-[#f97316] opacity-10 blur-[150px] animate-pulse"
         ></div>
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full lg:pl-6 lg:pr-24 mx-auto max-w-[48rem]">
+          <div className="w-full lg:pl-6 lg:pr-24 mx-auto max-w-3xl">
             <motion.div
               className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide min-h-[1.6em]"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ delay: 2, duration: 0.6 }}
             >
               <span>{roles[index].substring(0, subIndex)}</span>
               <span
-                className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle"
+                className="inline-block w-0.5 ml-1 bg-white animate-pulse align-middle"
                 style={{ height: "1em" }}
               ></span>
             </motion.div>
@@ -95,10 +110,10 @@ export default function Home() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  drop-shadow-lg"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ delay: 2, duration: 1 }}
             >
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#f97316] to-[#e9bc40]">
-                Hello, I'm
+                Olá, eu sou
               </span>
               <br />
               <span className="text-[#f8fafc] font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
@@ -111,31 +126,31 @@ export default function Home() {
               className="mt-6 text-base sm:text-lg md:text-xl text-[#94a3b8] max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 2.4, duration: 0.8 }}
             >
-              A full-stack web developer turning ideas into solutions with code,
-              passion, and purpose.
+              Desenvolvedor web full stack, criador de soluções com código,
+              sonhos e propósito.
             </motion.p>
 
             <motion.div
               className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 2.8, duration: 0.8 }}
             >
               <a
                 href="#projects"
                 className="px-6 py-3 rounded-full font-medium text-lg text-[#f8fafc] bg-linear-to-r from-[#f97316] 
                 via-[#fb923c] to-[#e9bc40] shadow-lg hover:scale-105 transition-all"
               >
-                View My Work
+                Ver Projetos
               </a>
               <a
                 href="/curriculo-gustavo-da-costa.pdf"
                 download
                 className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
               >
-                My Resume
+                Meu Currículo
               </a>
             </motion.div>
 
@@ -148,6 +163,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   variants={glowVariants}
                   initial="initial"
+                  animate="animate"
                   whileHover="hover"
                   whileTap="tap"
                   className="text-[#94a3b8]"
@@ -181,15 +197,15 @@ export default function Home() {
 
           <motion.img
             alt="Computador"
-            src="/computer.png"
+            src="/images/computer.png"
             className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none "
             style={{
               width: "min(45vw, 780px)",
               maxHeight: "90vh",
             }}
-            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            initial={{ opacity: 0, x: 40, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ delay: 2.2, duration: 0.8 }}
           />
         </div>
       </div>

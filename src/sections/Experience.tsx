@@ -1,5 +1,14 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
+
+type ExperienceItemProps = {
+  exp: Experience;
+  idx: number;
+  start: number;
+  end: number;
+  scrollYProgress: MotionValue<number>;
+  layout: "desktop" | "mobile";
+};
 
 type Experience = {
   role: string;
@@ -10,29 +19,36 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Web Developer",
-    company: "Brain Mentors",
+    role: "Base em Programação",
+    company: "Início da Jornada",
     duration: "2022",
     description:
-      "Built high-performance apps, integrated AI features, improved engagement by 10%",
+      "Estudo de lógica, algoritmos e fundamentos da computação, construindo a base para evolução no desenvolvimento web.",
   },
   {
-    role: "Web Developer",
-    company: "Brain Mentors",
-    duration: "2022",
+    role: "Desenvolvimento Web",
+    company: "Formação e Projetos",
+    duration: "2023 – 2024",
     description:
-      "Built high-performance apps, integrated AI features, improved engagement by 10%",
+      "Criação de aplicações com HTML, CSS e JavaScript, expandindo para React, Next.js e outras tecnologias modernas de front-end.",
   },
   {
-    role: "Web Developer",
-    company: "Brain Mentors",
-    duration: "2022",
+    role: "Experiência Profissional",
+    company: "Estágio e Graduação",
+    duration: "2025 – 2026",
     description:
-      "Built high-performance apps, integrated AI features, improved engagement by 10%",
+      "Atuação com Angular, NgRx, Tailwind, C# e .NET na modernização de sistemas. Conclusão da graduação e foco em novos desafios.",
   },
 ];
 
-function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
+function ExperienceItem({
+  exp,
+  idx,
+  start,
+  end,
+  scrollYProgress,
+  layout,
+}: ExperienceItemProps) {
   const scale = useTransform(scrollYProgress, [start, end], [0, 1]);
   const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
   const y = useTransform(
@@ -83,7 +99,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
       >
         <h3 className="text-lg font-semibold wrap-break-word">{exp.role}</h3>
         <p className="text-sm text-[#94a3b8] mb-2 wrap-break-word">
-          {exp.role}
+          {exp.company} | {exp.duration}
         </p>
         <p className="text-sm text-[#94a3b8] wrap-break-word">
           {exp.description}
@@ -98,7 +114,7 @@ export default function Experience() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1000);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => removeEventListener("resize", checkMobile);
@@ -131,7 +147,7 @@ export default function Experience() {
       >
         <div className="sticky top-0 h-screen flex flex-col">
           <h2 className="w-fit mx-auto text-4xl sm:text-5xl font-semibold mt-5 text-center bg-clip-text text-transparent bg-linear-to-r from-[#f97316] to-[#e9bc40]">
-            Experience
+            Experiência
           </h2>
           <div className="flex flex-1 items-center justify-center px-6 pb-10">
             {!isMobile && (

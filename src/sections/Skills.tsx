@@ -145,7 +145,7 @@ export default function Skills() {
         className="text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-[#f97316] 
         to-[#e9bc40]"
       >
-        My Skills
+        Habilidades{" "}
       </motion.h2>
 
       <motion.p
@@ -154,7 +154,7 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        Modern Technologies
+        Tecnologias Modernas{" "}
       </motion.p>
 
       <div className="relative w-full overflow-hidden">

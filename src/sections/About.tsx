@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
 
 export default function About() {
+  // const stats = [
+  //   { label: "Experience", value: "1+ years" },
+  //   { label: "Speciality", value: "Full Stack" },
+  //   { label: "Focus", value: "Performance & UX" },
+  // ];
+
   const stats = [
-    { label: "Experience", value: "1+ years" },
-    { label: "Speciality", value: "Full Stack" },
-    { label: "Focus", value: "Performance & UX" },
+    { label: "Experiência", value: "1+ anos" },
+    { label: "Especialidade", value: "Full Stack" },
+    { label: "Foco", value: "Performance & UX" },
   ];
 
   const glows = [
@@ -48,7 +54,7 @@ export default function About() {
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
             <img
-              src="/foto-gu.jpg"
+              src="/images/foto-gu.jpg"
               alt="profile"
               className="absolute inset-0 -translate-y-15"
             />
@@ -61,12 +67,19 @@ export default function About() {
             >
               Gustavo da Costa
             </h2>
-            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
+            {/* <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
               Full-Stack Developer
+            </p> */}
+            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
+              Desenvolvedor Full-Stack
             </p>
-            <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
+            {/* <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
               Building modern, scalable applications with Angular, React and
               .NET. Focused on performance, usability and real-world impact.
+            </p> */}
+            <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
+              Construindo aplicações modernas e escaláveis com Angular, React e
+              .NET. Focado em performance, usabilidade e impacto no mundo real.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl sm:max-md:max-w-full">
               {stats.map((item, i) => (
@@ -88,7 +101,7 @@ export default function About() {
                 href="#projects"
                 className="inline-flex items-center justify-center rounded-lg bg-white text-black font-semibold px-5 py-3 hover:bg-gray-200 transition"
               >
-                View Projects
+                Ver Projetos
               </a>
             </div>
           </div>
@@ -101,11 +114,14 @@ export default function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold text-white md-3">
+          {/* <h3 className="text-2xl sm:text-3xl font-bold text-white pb-3">
             About Me
+          </h3> */}
+          <h3 className="text-2xl sm:text-3xl font-bold text-white pb-3">
+            Sobre mim
           </h3>
 
-          <p className="text-[#94a3b8] leading-relaxed text-base sm:text-lg">
+          {/* <p className="text-[#94a3b8] leading-relaxed text-base sm:text-lg">
             I’m a full-stack developer currently working at CREA-SP,
             contributing to the modernization of internal systems using Angular,
             TypeScript and REST APIs. My experience includes migrating front-end
@@ -115,6 +131,17 @@ export default function About() {
             and maintainable code while delivering efficient solutions that
             improve productivity and user experience. Always learning, always
             building.
+          </p> */}
+          <p className="text-[#94a3b8] leading-relaxed text-base sm:text-lg">
+            Sou desenvolvedor full-stack formado em Análise e Desenvolvimento de
+            Sistemas, com experiência na modernização de sistemas internos no
+            CREA-SP, utilizando Angular, TypeScript e APIs REST. Atuei na
+            migração de arquiteturas front-end, implementação de gerenciamento
+            de estado com NgRx, melhorias de usabilidade e desenvolvimento de
+            soluções com C# e .NET. Tenho foco na escrita de código limpo,
+            escalável e de fácil manutenção, sempre buscando entregar soluções
+            eficientes que aumentem a produtividade e aprimorem a experiência do
+            usuário. Sempre aprendendo, sempre construindo.
           </p>
         </motion.div>
       </div>

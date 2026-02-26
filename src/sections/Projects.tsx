@@ -4,13 +4,26 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ComponentType,
+} from "react";
+import VidaPlusDetails from "./dialogs/VidaPlusDetails";
+import Dialog from "../components/Dialog";
+import AnuidadesDetails from "./dialogs/AnuidadesDetails";
+import AgendamentoDetails from "./dialogs/AgendamentoDetails";
+import TaskManagerWebDetails from "./dialogs/TaskManagerWebDetails";
+import ConversorMoedasDetails from "./dialogs/ConversorMoedasDetails";
 
 type Project = {
   title: string;
-  link: string;
+  link?: string;
   bgColor: string;
   image: string;
+  DialogContent: ComponentType;
 };
 
 function useIsMobile(query = "(max-width: 639px)"): boolean {
@@ -43,43 +56,46 @@ export default function Projects() {
     () => [
       {
         title: "Vidaplus",
-        link: "https",
-        bgColor: "#0f3d2e",
+        link: "https://vidaplus-sistema-hospitalar.vercel.app/",
+        bgColor: "#05110d",
         image: isMobile
-          ? "/vidaplus-preview-mobile.png"
-          : "/vidaplus-preview.png",
+          ? "/images/vidaplus/vidaplus-preview-mobile.png"
+          : "/images/vidaplus/vidaplus-preview.png",
+        DialogContent: VidaPlusDetails,
       },
       {
         title: "Anuidades",
-        link: "https",
-        bgColor: "#1e3a8a",
+        bgColor: "#040c21",
         image: isMobile
-          ? "/anuidade-preview-mobile.png"
-          : "/anuidade-preview.png",
+          ? "/images/anuidade/anuidade-preview-mobile.png"
+          : "/images/anuidade/anuidade-preview.png",
+        DialogContent: AnuidadesDetails,
       },
       {
         title: "Agendamento",
-        link: "https",
-        bgColor: "#0c4a6e",
+        bgColor: "#02141f",
         image: isMobile
-          ? "/agendamento-preview-mobile.png"
-          : "/agendamento-preview.png",
+          ? "/images/agendamento/agendamento-preview-mobile.png"
+          : "/images/agendamento/agendamento-preview.png",
+        DialogContent: AgendamentoDetails,
       },
       {
         title: "Task Manager Web",
-        link: "https",
-        bgColor: "#312e81",
+        link: "https://github.com/gustavodacostap/TaskManagerWeb",
+        bgColor: "#0a0920",
         image: isMobile
-          ? "/task-manager-preview-mobile.png"
-          : "/task-manager-preview.png",
+          ? "/images/tarefas/task-manager-preview-mobile.png"
+          : "/images/tarefas/task-manager-preview.png",
+        DialogContent: TaskManagerWebDetails,
       },
       {
         title: "Conversor de Moedas",
-        link: "https",
-        bgColor: "#134e4a",
+        link: "https://currency-converter-frontend-ruddy.vercel.app/",
+        bgColor: "#0c0c03",
         image: isMobile
-          ? "/conversor-moedas-preview-mobile.png"
-          : "/conversor-moedas-preview.png",
+          ? "/images/conversor/conversor-moedas-preview-mobile.png"
+          : "/images/conversor/conversor-moedas-preview.png",
+        DialogContent: ConversorMoedasDetails,
       },
     ],
     [isMobile],
@@ -98,6 +114,20 @@ export default function Projects() {
   });
 
   const activeProject = projects[activeIndex];
+  const ActiveDialogContent = activeProject.DialogContent;
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (isDialogOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isDialogOpen]);
 
   return (
     <section
@@ -112,9 +142,9 @@ export default function Projects() {
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
         <h2
-          className={`text-4xl sm:text-5xl font-semibold z-10 text-center ${isMobile ? "mt-4" : "mt-8"}`}
+          className={`text-4xl sm:text-5xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#f97316] to-[#e9bc40] z-10 text-center ${isMobile ? "mt-4" : "mt-8"}`}
         >
-          My Work
+          Projetos
         </h2>
         <div
           className={`relative w-full flex-1 flex items-center justify-center 
@@ -177,20 +207,22 @@ export default function Projects() {
           ))}
         </div>
 
-        <div
-          className={`absolute z-100 ${isMobile ? "bottom-20" : "bottom-10"}`}
+        <button
+          onClick={() => setIsDialogOpen(true)}
+          className={`absolute z-100 ${isMobile ? "bottom-20" : "bottom-8"} inline-block px-6 py-3 cursor-pointer rounded-full font-medium text-lg text-[#f8fafc] bg-linear-to-r from-[#f97316] 
+                via-[#fb923c] to-[#e9bc40] shadow-lg hover:scale-105 transition-all`}
         >
-          <a
-            href={activeProject.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all"
-            aria-label={`View ${activeProject.title}`}
-          >
-            View Project
-          </a>
-        </div>
+          Ver Detalhes
+        </button>
       </div>
+      <Dialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        projectLink={activeProject.link}
+        projectTitle={activeProject.title}
+      >
+        <ActiveDialogContent />
+      </Dialog>
     </section>
   );
 }
