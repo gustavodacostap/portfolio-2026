@@ -27,7 +27,7 @@ const experiences: Experience[] = [
   },
   {
     role: "Desenvolvimento Web",
-    company: "Formação e Projetos",
+    company: "Evolução",
     duration: "2023 – 2024",
     description:
       "Criação de aplicações com HTML, CSS e JavaScript, expandindo para React, Next.js e outras tecnologias modernas de front-end.",
@@ -37,7 +37,7 @@ const experiences: Experience[] = [
     company: "Estágio e Graduação",
     duration: "2025 – 2026",
     description:
-      "Atuação com Angular, NgRx, Tailwind, C# e .NET na modernização de sistemas. Conclusão da graduação e foco em novos desafios.",
+      "Atuação com Angular, NgRx, Tailwind, C# e .NET em sistemas. Conclusão da graduação e foco em novos desafios.",
   },
 ];
 
@@ -93,7 +93,7 @@ function ExperienceItem({
         style={{ scale, opacity }}
       ></motion.div>
       <motion.article
-        className="backdrop-blur bg-[#111827]/80 border border-[#1f2933] rounded-xl p-5 w-[90vw] max-w-sm ml-6 shadow-lg"
+        className="backdrop-blur bg-[#111827]/80 border border-[#1f2933] rounded-xl px-5 py-3 w-[90vw] max-w-sm ml-6 shadow-lg"
         style={{ opacity, x }}
         transition={{ duration: 0.4, delay: idx * 0.15 }}
       >
@@ -182,7 +182,7 @@ export default function Experience() {
                     style={{ height: lineSize }}
                   ></motion.div>
                 </div>
-                <div className="relative flex flex-col gap-10 ml-10 mt-6 pb-7">
+                <div className="relative flex flex-col gap-4 ml-8 mt-3 pb-7">
                   {experiences.map((exp, idx) => (
                     <ExperienceItem
                       key={idx}

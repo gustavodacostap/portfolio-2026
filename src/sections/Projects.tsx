@@ -3,6 +3,7 @@ import {
   motion,
   useMotionValueEvent,
   useScroll,
+  useTransform,
 } from "framer-motion";
 import {
   useEffect,
@@ -80,7 +81,7 @@ export default function Projects() {
         DialogContent: AgendamentoDetails,
       },
       {
-        title: "Task Manager Web",
+        title: "Task Manager",
         link: "https://github.com/gustavodacostap/TaskManagerWeb",
         bgColor: "#0a0920",
         image: isMobile
@@ -89,7 +90,7 @@ export default function Projects() {
         DialogContent: TaskManagerWebDetails,
       },
       {
-        title: "Conversor de Moedas",
+        title: "Conversor",
         link: "https://currency-converter-frontend-ruddy.vercel.app/",
         bgColor: "#0c0c03",
         image: isMobile
@@ -107,6 +108,7 @@ export default function Projects() {
   });
   const thresholds = projects.map((_, i) => (i + 1) / projects.length);
   const [activeIndex, setActiveIndex] = useState(0);
+  const lineSize = useTransform(scrollYProgress, (v) => `${v * 100}%`);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     const idx = thresholds.findIndex((t) => v <= t);
@@ -178,30 +180,43 @@ export default function Projects() {
               </AnimatePresence>
 
               <div
-                className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7) 
-                  ${isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"} h-[62vh] sm:h-[66vh]`}
-                style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
+                className={`${isMobile ? "mb-6" : "mb-10 sm:mb-12"} flex gap-3`}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top drop-shadow-xl md:drop-shadow-2xl"
-                  style={{
-                    position: "relative",
-                    zIndex: 10,
-                    filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
-                    transition: "filter 200ms ease",
-                  }}
-                  loading="lazy"
-                />
                 <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    zIndex: 11,
-                    background:
-                      "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 40%",
-                  }}
-                ></div>
+                  className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7) 
+                  ${isMobile ? "rounded-lg" : "rounded-xl"} h-[62vh] sm:h-[66vh]`}
+                  style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top drop-shadow-xl md:drop-shadow-2xl"
+                    style={{
+                      position: "relative",
+                      zIndex: 10,
+                      filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
+                      transition: "filter 200ms ease",
+                    }}
+                    loading="lazy"
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      zIndex: 11,
+                      background:
+                        "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 40%",
+                    }}
+                  ></div>
+                </div>
+                {/* INDICADOR MOBILE */}
+                {isMobile && (
+                  <div className="w-1.5 bg-[#1f2933] rounded relative">
+                    <motion.div
+                      className="absolute top-0 left-0 w-full bg-[#7dd8ff] rounded origin-top"
+                      style={{ height: lineSize }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
