@@ -84,7 +84,8 @@ export default function About() {
               {stats.map((item, i) => (
                 <motion.div
                   key={i}
-                  className="rounded-xl border border-[#1f2933] bg-[#111827] px-4 py-3 text-center"
+                  className={`rounded-xl border border-[#1f2933] bg-[#111827] px-4 py-3 text-center 
+                    ${i === 2 ? "col-span-2 sm:col-span-1" : ""}`}                  
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.04 }}
