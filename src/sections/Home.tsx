@@ -128,7 +128,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.4, duration: 0.8 }}
             >
-              Desenvolvedor web full stack, criador de soluções com código,
+              Desenvolvedor de software, criador de soluções com código,
               sonhos e propósito.
             </motion.p>
 

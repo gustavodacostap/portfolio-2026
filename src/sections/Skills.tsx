@@ -1,11 +1,9 @@
 import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import type { IconType } from "react-icons";
-import { AiOutlineDotNet } from "react-icons/ai";
-import { FaAngular, FaReact, FaSass } from "react-icons/fa";
+import { FaAngular, FaBootstrap, FaJsSquare, FaPhp, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiNextdotjs, SiNgrx, SiTypescript } from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
+import { SiMysql, SiNgrx, SiTypescript } from "react-icons/si";
 
 type Skill = {
   icon: IconType;
@@ -28,24 +26,24 @@ export default function Skills() {
       name: "Tailwind CSS",
     },
     {
-      icon: FaSass,
-      name: "Sass",
+      icon: FaJsSquare,
+      name: "JavaScript",
     },
     {
       icon: FaReact,
       name: "React",
     },
     {
-      icon: SiNextdotjs,
-      name: "Next.js",
+      icon: FaPhp,
+      name: "PHP",
     },
     {
-      icon: TbBrandCSharp,
-      name: "C#",
+      icon: SiMysql,
+      name: "MySQL",
     },
     {
-      icon: AiOutlineDotNet,
-      name: ".NET",
+      icon: FaBootstrap,
+      name: "Bootstrap",
     },
   ];
 

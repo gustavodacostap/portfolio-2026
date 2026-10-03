@@ -19,25 +19,25 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Base em Programação",
-    company: "Início da Jornada",
-    duration: "2022",
-    description:
-      "Estudo de lógica, algoritmos e fundamentos da computação, construindo a base para evolução no desenvolvimento web.",
-  },
-  {
-    role: "Desenvolvimento Web",
-    company: "Evolução",
-    duration: "2023 – 2024",
-    description:
-      "Criação de aplicações com HTML, CSS e JavaScript, expandindo para React, Next.js e outras tecnologias modernas de front-end.",
-  },
-  {
-    role: "Experiência Profissional",
-    company: "Estágio e Graduação",
+    role: "Desenvolvimento Frontend",
+    company: "CREA-SP",
     duration: "2025 – 2026",
     description:
-      "Atuação com Angular, NgRx, Tailwind, C# e .NET em sistemas. Conclusão da graduação e foco em novos desafios.",
+      "Desenvolvimento de aplicações web com Angular, TypeScript e NgRx, integrando APIs REST e criando interfaces responsivas.",
+  },
+  {
+    role: "Desenvolvimento Full Stack",
+    company: "CBRdoc",
+    duration: "2026 – Atual",
+    description:
+      "Desenvolvimento e manutenção de sistemas web com PHP, MySQL e JavaScript, atuando em funcionalidades, bugs e regras de negócio.",
+  },
+  {
+    role: "Evolução Profissional",
+    company: "CREA-SP → CBRdoc",
+    duration: "2025 – Atual",
+    description:
+      "Evolução do frontend para uma atuação full stack, envolvendo backend, banco de dados e regras de negócio.",
   },
 ];
 

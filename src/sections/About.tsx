@@ -10,7 +10,7 @@ export default function About() {
   const stats = [
     { label: "Experiência", value: "1+ anos" },
     { label: "Especialidade", value: "Full Stack" },
-    { label: "Foco", value: "Performance & UX" },
+    { label: "Foco", value: "Desenvolvimento Web" },
   ];
 
   const glows = [
@@ -71,15 +71,14 @@ export default function About() {
               Full-Stack Developer
             </p> */}
             <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
-              Desenvolvedor Full-Stack
+              Desenvolvedor de Software
             </p>
             {/* <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
               Building modern, scalable applications with Angular, React and
               .NET. Focused on performance, usability and real-world impact.
             </p> */}
             <p className="mt-4 text-[#94a3b8] leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
-              Construindo aplicações modernas e escaláveis com Angular, React e
-              .NET. Focado em performance, usabilidade e impacto no mundo real.
+              Desenvolvendo aplicações web com Angular, TypeScript, PHP e MySQL. Focado em qualidade, usabilidade e soluções que geram impacto real.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl sm:max-md:max-w-full">
               {stats.map((item, i) => (
@@ -133,15 +132,7 @@ export default function About() {
             building.
           </p> */}
           <p className="text-[#94a3b8] leading-relaxed text-base sm:text-lg">
-            Sou desenvolvedor full-stack formado em Análise e Desenvolvimento de
-            Sistemas, com experiência na modernização de sistemas internos no
-            CREA-SP, utilizando Angular, TypeScript e APIs REST. Atuei na
-            migração de arquiteturas front-end, implementação de gerenciamento
-            de estado com NgRx, melhorias de usabilidade e desenvolvimento de
-            soluções com C# e .NET. Tenho foco na escrita de código limpo,
-            escalável e de fácil manutenção, sempre buscando entregar soluções
-            eficientes que aumentem a produtividade e aprimorem a experiência do
-            usuário. Sempre aprendendo, sempre construindo.
+            Sou desenvolvedor de software formado em Análise e Desenvolvimento de Sistemas, com experiência em desenvolvimento frontend e atuação atual em desenvolvimento full stack. No CREA-SP, trabalhei com Angular, TypeScript, NgRx e APIs REST, desenvolvendo aplicações SPA, autenticação e interfaces responsivas. Atualmente, na CBRdoc, atuo com PHP, MySQL, JavaScript e sistemas web, desenvolvendo funcionalidades, corrigindo bugs e investigando fluxos entre banco de dados, backend e frontend. Tenho foco em código organizado, resolução de problemas e evolução contínua, sempre buscando construir soluções eficientes e de fácil manutenção. Sempre aprendendo, sempre construindo.
           </p>
         </motion.div>
       </div>
